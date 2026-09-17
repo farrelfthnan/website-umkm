@@ -37,3 +37,33 @@ button {
   border: 0;
   border-radius: 999px;
 }
+
+.business-info-section {
+margin-top: 32px;
+padding: 28px;
+background: #fffaf3;
+border-radius: 20px;
+}
+
+.business-info {
+display: flex;
+gap: 20px;
+flex-wrap: wrap;
+}
+
+.info-card {
+flex: 1;
+min-width: 240px;
+padding: 20px;
+background: #f6f0e8;
+border-radius: 16px;
+}
+
+.info-card h3 {
+margin-top: 0;
+color: #6f3b1f;
+}
+
+.info-card p {
+margin-bottom: 8px;
+}
