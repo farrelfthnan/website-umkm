@@ -42,10 +42,12 @@
 html {
   color-scheme: light;
   scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
   margin: 0;
+  min-width: 0;
   color: var(--color-text);
   background: var(--color-background);
   font-family: system-ui, -apple-system, BlinkMacSystemFont,
@@ -54,18 +56,40 @@ body {
   line-height: 1.6;
 }
 
-/* Images */
-img {
-  display: block;
+/* Media responsif */
+img,
+video,
+iframe,
+svg {
   max-width: 100%;
+}
+
+img,
+video {
+  display: block;
   height: auto;
+}
+
+img {
   border-radius: var(--radius-md);
 }
 
 .profile-image {
   width: 100%;
   max-width: 420px;
+  aspect-ratio: 4 / 3;
   object-fit: cover;
+}
+
+/* Elemen dengan teks panjang */
+p,
+li,
+td,
+th,
+a,
+button,
+label {
+  overflow-wrap: anywhere;
 }
 
 /* Links */
@@ -84,6 +108,7 @@ a:hover {
   top: -5rem;
   left: var(--space-3);
   z-index: 1000;
+  max-width: calc(100% - 2rem);
   padding: var(--space-2) var(--space-3);
   color: var(--color-surface);
   background: var(--color-text);
@@ -132,21 +157,46 @@ a:hover {
   margin-inline: auto;
 }
 
+.page {
+  min-width: 0;
+  padding-block: clamp(1.5rem, 4vw, 2.5rem);
+}
+
+/* Navigation: mobile first */
+.nav {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-3);
+}
+
+.brand {
+  display: inline-block;
+  margin-bottom: 0;
+  color: var(--color-text);
+  font-weight: 800;
+  text-decoration: none;
+}
+
 .nav ul {
   display: flex;
+  flex-direction: column;
   flex-wrap: wrap;
-  gap: var(--space-1) var(--space-2);
+  gap: var(--space-1);
+  width: 100%;
   padding: 0;
   margin: 0;
   list-style: none;
 }
 
 .nav li {
-  margin: 0 0 var(--space-1);
+  min-width: 0;
+  margin: 0;
 }
 
 .nav a {
   display: inline-block;
+  max-width: 100%;
   padding: var(--space-1) var(--space-2);
   border-radius: var(--radius-sm);
 }
@@ -158,23 +208,13 @@ a:hover {
   background: #fef3c7;
 }
 
-/* Brand */
-.brand {
-  display: inline-block;
-  margin-bottom: var(--space-2);
-  color: var(--color-text);
-  font-weight: 800;
-  text-decoration: none;
-}
-
-/* Page content */
-.page {
-  padding-block: var(--space-5);
-}
-
 /* Hero */
 .hero {
-  padding: var(--space-5);
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--space-4);
+  min-width: 0;
+  padding: var(--space-4);
   color: var(--color-surface);
   background: var(--color-primary);
   border-radius: var(--radius-md);
@@ -190,10 +230,15 @@ h2,
 h3 {
   line-height: 1.2;
   text-wrap: balance;
+  overflow-wrap: anywhere;
 }
 
 h1 {
   font-size: clamp(2rem, 6vw, 3rem);
+}
+
+h2 {
+  font-size: clamp(1.35rem, 3vw, 1.75rem);
 }
 
 /* Readability */
@@ -219,10 +264,12 @@ li {
 .button,
 button {
   display: inline-block;
+  max-width: 100%;
   padding: var(--space-2) var(--space-3);
   color: var(--color-surface);
   font: inherit;
   font-weight: 700;
+  text-align: center;
   text-decoration: none;
   cursor: pointer;
   background: var(--color-primary);
@@ -236,7 +283,7 @@ button:hover {
   background: var(--color-primary-strong);
 }
 
-/* Hero button: specificity audit example */
+/* Hero button */
 .hero button {
   color: var(--color-text);
   background: #fef3c7;
@@ -247,11 +294,11 @@ button:hover {
   background: #fde68a;
 }
 
-/* Cards and form */
+/* Cards and forms */
 .product-card,
 .media-card,
-table,
 form {
+  min-width: 0;
   margin-block: var(--space-3);
   padding: var(--space-3);
   background: var(--color-surface);
@@ -262,6 +309,7 @@ form {
 
 /* Figures and captions */
 figure {
+  min-width: 0;
   margin-inline: 0;
   margin-bottom: var(--space-4);
 }
@@ -282,8 +330,9 @@ figcaption {
 
 /* Business information */
 .business-info-section {
+  min-width: 0;
   margin-top: var(--space-5);
-  padding: var(--space-4);
+  padding: var(--space-3);
   background: var(--color-surface);
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-card);
@@ -293,11 +342,12 @@ figcaption {
   display: flex;
   flex-wrap: wrap;
   gap: var(--space-4);
+  min-width: 0;
 }
 
 .info-card {
-  flex: 1;
-  min-width: 240px;
+  flex: 1 1 240px;
+  min-width: 0;
   padding: var(--space-3);
   background: var(--color-surface-soft);
   border-radius: var(--radius-md);
@@ -336,9 +386,35 @@ th {
   background: var(--color-surface-soft);
 }
 
+/* Responsive table wrapper */
+.table-scroll {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border-radius: var(--radius-md);
+}
+
+.table-scroll:focus-visible {
+  outline: 3px solid var(--color-focus);
+  outline-offset: 3px;
+}
+
+.table-scroll table {
+  width: 100%;
+  min-width: 40rem;
+  margin-block: 0;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-card);
+}
+
 /* Forms */
 form,
 pre {
+  min-width: 0;
   padding: var(--space-3);
   background: var(--color-surface);
   border: 1px solid var(--color-border);
@@ -347,6 +423,7 @@ pre {
 }
 
 .field {
+  min-width: 0;
   margin-bottom: var(--space-3);
 }
 
@@ -363,6 +440,7 @@ legend {
   display: block;
   width: 100%;
   min-width: 0;
+  max-width: 100%;
   padding: var(--space-2);
   color: var(--color-text);
   font: inherit;
@@ -378,6 +456,7 @@ input[type="checkbox"] {
 }
 
 fieldset {
+  min-width: 0;
   margin: 0 0 var(--space-3);
   padding: var(--space-3);
   border: 1px solid var(--color-border);
@@ -389,8 +468,8 @@ fieldset label {
   margin-bottom: var(--space-1);
 }
 
-/* Form preview */
 #preview-form {
+  min-width: 0;
   overflow-wrap: anywhere;
   padding: var(--space-3);
   white-space: pre-wrap;
@@ -399,11 +478,13 @@ fieldset label {
   border-radius: var(--radius-sm);
 }
 
-/* Gallery */
-.gallery-list {
+/* Gallery: mobile first */
+.gallery-list,
+.gallery-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: minmax(0, 1fr);
   gap: var(--space-3);
+  min-width: 0;
 }
 
 .media-card {
@@ -414,7 +495,7 @@ fieldset label {
 
 .media-card img {
   width: 100%;
-  height: 250px;
+  aspect-ratio: 4 / 3;
   object-fit: cover;
   border-radius: var(--radius-md);
 }
@@ -424,58 +505,16 @@ fieldset label {
   color: var(--color-muted);
 }
 
-/* Audio */
-audio {
-  max-width: 100%;
-}
-
-/* Mobile */
-@media (max-width: 600px) {
-  .gallery-list {
-    grid-template-columns: 1fr;
-  }
-
-  .hero {
-    padding: var(--space-4);
-  }
-
-  .business-info-section {
-    padding: var(--space-3);
-  }
-
-  .info-card {
-    min-width: 0;
-    flex-basis: 100%;
-  }
-
-  table {
-    font-size: 0.9rem;
-  }
-
-  th,
-  td {
-    padding: var(--space-1);
-  }
-}
-
-/* Reduced motion accessibility */
-@media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
-}
-
-
-/* Grid: tiga kartu dalam satu baris */
+/* Product grid: mobile first */
 .product-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: var(--space-3);
-  margin-top: var(--space-4);
+  grid-template-columns: minmax(0, 1fr);
   align-items: stretch;
+  gap: var(--space-3);
+  min-width: 0;
+  margin-top: var(--space-4);
 }
 
-/* Kartu produk */
 .product-grid .product-item {
   position: relative;
   display: flex;
@@ -489,38 +528,34 @@ audio {
   box-shadow: none;
 }
 
-/* Judul kartu */
 .product-item h2 {
   margin: 0 0 var(--space-3);
   padding-right: var(--space-3);
   color: var(--color-text);
-  font-size: 1.5rem;
+  font-size: clamp(1.2rem, 3vw, 1.5rem);
   line-height: 1.3;
 }
 
-/* Deskripsi */
 .product-item p {
   margin: 0 0 var(--space-3);
 }
 
-/* Flexbox: harga dan tombol di bagian bawah */
 .product-card-footer {
   display: flex;
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
   gap: var(--space-2);
+  min-width: 0;
   margin-top: auto;
   padding-top: var(--space-2);
 }
 
-/* Harga */
 .product-item .price {
   color: var(--color-text);
   font-size: 1.125rem;
 }
 
-/* Tombol Detail */
 .product-item .button-detail {
   display: inline-block;
   padding: var(--space-2) var(--space-3);
@@ -529,7 +564,7 @@ audio {
   border: 1px solid var(--color-primary);
   border-radius: var(--radius-sm);
   text-decoration: none;
-  white-space: nowrap;
+  white-space: normal;
 }
 
 .product-item .button-detail:hover {
@@ -537,11 +572,11 @@ audio {
   background: var(--color-primary);
 }
 
-/* Badge Favorit menempel di sudut kartu */
 .product-badge {
   position: absolute;
   top: var(--space-2);
   right: var(--space-2);
+  max-width: calc(100% - 2rem);
   padding: 0.25rem 0.65rem;
   color: var(--color-text);
   background: var(--color-accent);
@@ -550,31 +585,301 @@ audio {
   font-weight: 800;
 }
 
-/* Jarak antara kartu produk dan tabel harga */
+/* Section spacing */
 #konten section + section {
   margin-top: var(--space-5);
 }
 
-/* Flexbox: navigasi utama */
-.nav {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  gap: var(--space-2) var(--space-4);
+/* Audio */
+audio {
+  display: block;
+  max-width: 100%;
 }
 
-.nav .brand {
-  margin-bottom: 0;
+/* Breakpoint 1: navigasi dan galeri
+   Gejala: navigasi bertumpuk dan galeri terlalu sempit.
+   Hasil: navigasi dapat berjajar dan galeri memiliki 2 kolom. */
+@media (min-width: 42rem) {
+  .nav ul {
+    flex-direction: row;
+    width: auto;
+  }
+
+  .gallery-list,
+  .gallery-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
-.nav ul {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: var(--space-1) var(--space-2);
+/* Breakpoint 2: kartu dan hero
+   Gejala: ruang horizontal mulai cukup untuk dua kolom.
+   Hasil: hero dan kartu produk memanfaatkan lebar layar. */
+@media (min-width: 48rem) {
+  .hero {
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
+    padding: var(--space-5);
+  }
+
+  .product-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .business-info-section {
+    padding: var(--space-4);
+  }
 }
 
-.nav li {
-  margin-bottom: 0;
+/* Breakpoint 3: desktop lebar */
+@media (min-width: 60rem) {
+  .nav {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .product-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+/* Layar sempit dan ponsel */
+@media (max-width: 600px) {
+  .site-header,
+  .site-footer,
+  .footer {
+    padding-inline: var(--space-2);
+  }
+
+  .hero {
+    padding: var(--space-3);
+  }
+
+  .business-info-section {
+    padding: var(--space-3);
+  }
+
+  .info-card {
+    flex-basis: 100%;
+  }
+
+  th,
+  td {
+    padding: var(--space-1);
+  }
+}
+
+/* Reduced motion accessibility */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Mencegah elemen anak melampaui lebar parent */
+body {
+  min-width: 0;
+}
+
+.page {
+  width: min(100% - 2rem, 60rem);
+  padding-block: clamp(1.5rem, 4vw, 2.5rem);
+}
+
+img,
+video,
+iframe {
+  max-width: 100%;
+}
+
+img {
+  height: auto;
+}
+
+/* Ukuran teks fluida */
+h1 {
+  font-size: clamp(2rem, 5vw + 0.5rem, 3rem);
+}
+
+.product-item h2 {
+  font-size: clamp(1.15rem, 1.5vw + 0.75rem, 1.5rem);
+}
+
+/* Hero: satu kolom secara default */
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--space-4);
+  min-width: 0;
+}
+
+.hero-content,
+.hero-media {
+  min-width: 0;
+}
+
+.hero-media img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+/* Grid produk: satu kolom di layar sempit */
+.product-grid {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.product-item {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.product-item .product-card-footer {
+  min-width: 0;
+}
+
+/* Galeri menggunakan nama class dari HTML */
+.gallery-list {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--space-3);
+}
+
+.media-card {
+  min-width: 0;
+}
+
+.media-card img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  height: auto;
+  object-fit: cover;
+}
+
+/* Tabel hanya scroll di area tabel, bukan seluruh halaman */
+.table-scroll {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  -webkit-overflow-scrolling: touch;
+}
+
+.table-scroll table {
+  width: 100%;
+  min-width: 40rem;
+  margin-block: 0;
+}
+
+/* Form tidak boleh melampaui layar */
+form,
+fieldset,
+.field,
+.field input,
+.field select,
+.field textarea,
+#preview-form {
+  min-width: 0;
+  max-width: 100%;
+}
+
+.field input,
+.field select,
+.field textarea {
+  width: 100%;
+}
+
+#preview-form {
+  overflow-wrap: anywhere;
+}
+
+/* Breakpoint 1: navigasi dan galeri mulai melebar */
+@media (min-width: 42rem) {
+  .nav {
+    align-items: flex-start;
+  }
+
+  .nav ul {
+    flex-direction: row;
+  }
+
+  .gallery-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* Breakpoint 2: hero dan produk untuk layar medium */
+@media (min-width: 48rem) {
+  .hero {
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
+    align-items: center;
+  }
+
+  .product-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* Breakpoint 3: navigasi dan produk untuk layar lebar */
+@media (min-width: 60rem) {
+  .nav {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .product-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+/* Tetap nyaman pada layar kecil dan orientasi landscape */
+@media (max-width: 26rem) {
+  .site-header {
+    padding-inline: 0.5rem;
+  }
+
+  .nav,
+  .page {
+    width: min(100% - 1rem, 60rem);
+  }
+
+  .product-grid .product-item {
+    padding: var(--space-3);
+  }
+
+  .product-badge {
+    max-width: calc(100% - 1rem);
+    overflow-wrap: anywhere;
+  }
+
+  th,
+  td {
+    padding: 0.4rem;
+  }
+}
+
+/* Aksesibilitas: kurangi animasi jika diminta pengguna */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }

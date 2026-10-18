@@ -3,7 +3,9 @@
 <html lang="id">
   <head>
     <meta charset="utf-8" />
+    <!-- Pengaturan tampilan responsif -->
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    
     <title>Produk Kopi Nusa - Website UMKM</title>
     <link rel="stylesheet" href="css/style.css" />
   </head>
@@ -45,7 +47,7 @@
             <p>Rasa cokelat, jeruk, dan gula aren.</p>
 
             <div class="product-card-footer">
-              <strong class="price"></strong>
+              <strong class="price">Rp45.000</strong>
               <a class="button button-detail" href="kontak.html">
                 Detail
               </a>
@@ -53,11 +55,12 @@
           </article>
 
           <article class="product-card product-item">
+             <span class="product-badge">Hemat</span>
             <h2>Caramel Latte</h2>
             <p>Body tebal dengan aroma rempah.</p>
 
             <div class="product-card-footer">
-              <strong class="price"></strong>
+              <strong class="price">Rp22.000</strong>
               <a class="button button-detail" href="kontak.html">
                 Detail
               </a>
@@ -65,11 +68,16 @@
           </article>
 
           <article class="product-card product-item">
-            <h2>Oat Milk Iced Latte</h2>
-            <p>Perpaduan espresso dengan susu oat yang creamy, lembut, dan menyegarkan, dengan sentuhan rasa manis alami yang pas untuk menemani harimu.</p>
+            <span class="product-badge">creamy</span>
+            <h2>Milk Iced Latte</h2>
+            <p>
+              Perpaduan espresso dengan susu yang creamy,
+              lembut, dan menyegarkan, dengan sentuhan rasa
+              manis alami yang pas untuk menemani harimu.
+            </p>
 
             <div class="product-card-footer">
-              <strong class="price"></strong>
+              <strong class="price">Rp35.000</strong>
               <a class="button button-detail" href="kontak.html">
                 Detail
               </a>
@@ -78,38 +86,48 @@
         </div>
       </section>
 
-      <!-- Tabel harga tetap dipertahankan -->
+      <!-- Tabel harga responsif -->
       <section aria-labelledby="harga-title">
         <h2 id="harga-title">Daftar Harga</h2>
 
-        <table>
-          <caption>Daftar harga produk Kopi Nusa</caption>
-          <thead>
-            <tr>
-              <th scope="col">Produk</th>
-              <th scope="col">Ukuran</th>
-              <th scope="col">Harga</th>
-            </tr>
-          </thead>
+        <div
+          class="table-scroll"
+          role="region"
+          aria-labelledby="daftar-harga-caption"
+          tabindex="0"
+        >
+          <table>
+            <caption id="daftar-harga-caption">
+              Daftar harga produk Kopi Nusa
+            </caption>
 
-          <tbody>
-            <tr>
-              <th scope="row">Kopi Tubruk Signature</th>
-              <td>250 gram</td>
-              <td class="price">Rp45.000</td>
-            </tr>
-            <tr>
-              <th scope="row">Caramel Latte</th>
-              <td>Botol 250 ml</td>
-              <td class="price">Rp22.000</td>
-            </tr>
-            <tr>
-              <th scope="row">Oat Milk Iced Latte</th>
-              <td>Botol 250 ml</td>
-              <td class="price">Rp35.000</td>
-            </tr>
-          </tbody>
-        </table>
+            <thead>
+              <tr>
+                <th scope="col">Produk</th>
+                <th scope="col">Ukuran</th>
+                <th scope="col">Harga</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <tr>
+                <th scope="row">Kopi Tubruk Signature</th>
+                <td>250 gram</td>
+                <td class="price">Rp45.000</td>
+              </tr>
+              <tr>
+                <th scope="row">Caramel Latte</th>
+                <td>Botol 250 ml</td>
+                <td class="price">Rp22.000</td>
+              </tr>
+              <tr>
+                <th scope="row">Oat Milk Iced Latte</th>
+                <td>Botol 250 ml</td>
+                <td class="price">Rp35.000</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </section>
     </main>
 
