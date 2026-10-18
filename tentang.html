@@ -1,47 +1,104 @@
+
 <!doctype html>
 <html lang="id">
-  <head>
-    <meta charset="utf-8" />
-    <!-- Pengaturan tampilan responsif -->
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    
-    <title>Tentang Kopi Nusa - Website UMKM</title>
-    <link rel="stylesheet" href="css/style.css" />
-  </head>
-  <body>
-    <a class="skip-link" href="#konten">
-  Lewati ke konten utama
-</a>
-    <header class="site-header">
-      <nav class="nav" aria-label="Navigasi utama">
-        <a class="brand" href="index.html">Kopi Nusa</a>
-        <ul>
-          <li><a href="index.html">Beranda</a></li>
-          <li><a aria-current="page" href="tentang.html">Tentang Kami</a></li>
-          <li><a href="produk.html">Produk</a></li>
-          <li><a href="galeri.html">Galeri</a></li>
-          <li><a href="kontak.html">Kontak</a></li>
-        </ul>
-      </nav>
-    </header>
-    <main id="konten" class="page">
-      <section aria-labelledby="tentang-title">
-        <p class="eyebrow">Cerita Usaha</p>
-        <h1 id="tentang-title">Tentang Kopi Nusa</h1>
-        <p>Kopi Nusa adalah UMKM yang mengolah kopi lokal untuk menyajikan cita rasa yang khas.</p>
-        <img src="gallery/kopi.webp" alt="Etalase Kopi Nusa berisi kemasan kopi lokal" />
-      </section>
-      <section aria-labelledby="nilai-title">
-        <h2 id="nilai-title">Nilai yang Kami Bawa</h2>
-        <ul>
-          <li>Bahan lokal dari petani sekitar.</li>
-          <li>Proses sederhana dan transparan.</li>
-          <li>Pelayanan ramah untuk pelanggan harian.</li>
-        </ul>
-      </section>
-    </main>
-    <footer class="site-footer">
-      <p>&copy; 2026 Kopi Nusa.Hubungi Kopi Nusa melalui WhatsApp: 0812-0000-0000.</p>
-    </footer>
-  </body>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Tentang Kami - Kopi Nusa</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="about-page">
+  
+<header class="site-header">
+  <nav class="nav" aria-label="Navigasi utama">
+    <a class="brand" href="index.html">Kopi Nusa</a>
+
+    <ul>
+      <li><a href="index.html">Beranda</a></li>
+      <li>
+        <a aria-current="page" href="tentang.html">
+          Tentang Kami
+        </a>
+      </li>
+      <li><a href="produk.html">Produk</a></li>
+      <li><a href="galeri.html">Galeri</a></li>
+      <li><a href="kontak.html">Kontak</a></li>
+    </ul>
+  </nav>
+</header>
+
+  <a class="skip-link" href="#konten">
+    Lewati ke konten utama
+  </a>
+
+  <main id="konten" class="about-container">
+
+    <!-- Bagian hero -->
+    <section class="about-hero" aria-labelledby="about-title">
+      <div class="about-content">
+        <p class="about-eyebrow">UMKM PEKALONGAN</p>
+
+        <h1 id="about-title">Kopi Nusa</h1>
+
+        <p class="about-description">
+          Kopi lokal pilihan untuk teman belajar, bekerja,
+          dan berdiskusi.
+        </p>
+
+        <a class="promo-button" href="produk.html">
+          Lihat promo hari ini
+        </a>
+      </div>
+
+      <div class="about-image">
+        <img
+          src="gallery/kopi.webp"
+          alt="Secangkir kopi dengan biji kopi pilihan"
+        >
+      </div>
+    </section>
+
+    <!-- Bagian produk -->
+    <section class="about-products" aria-labelledby="products-title">
+      <h2 id="products-title">Produk KOPI NUSA</h2>
+
+      <div class="about-product-grid">
+
+        <article class="about-product">
+          <img
+            src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&w=500&q=80"
+            alt="Oat Milk Iced Latte"
+            loading="lazy"
+          >
+          <h3>Oat Milk Iced Latte</h3>
+          <p>Rp22.000</p>
+        </article>
+
+        <article class="about-product">
+          <img
+            src="https://images.unsplash.com/photo-1517701604599-bb29b565090c?auto=format&fit=crop&w=500&q=80"
+            alt="Kopi Tubruk Signature"
+            loading="lazy"
+          >
+          <h3>Kopi Tubruk Signature</h3>
+          <p>Rp18.000</p>
+        </article>
+
+        <article class="about-product">
+          <img
+            src="https://images.unsplash.com/photo-1485808191679-5f86510681a2?auto=format&fit=crop&w=500&q=80"
+            alt="Caramel Latte"
+            loading="lazy"
+          >
+          <h3>Caramel Latte</h3>
+          <p>Rp22.000</p>
+        </article>
+
+      </div>
+    </section>
+
+  </main>
+</body>
 </html>
