@@ -1,80 +1,143 @@
+
 <!doctype html>
 <html lang="id">
 <head>
-  <meta charset="utf-8">
-  <!-- Pengaturan tampilan responsif -->
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    
-  <title>Galeri Kopi Nusa - Website UMKM</title>
-  <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-  <a class="skip-link" href="#konten">Lewati ke konten</a>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
+  <title>Galeri Kopi Nusa - Website UMKM</title>
+
+  <link rel="stylesheet" href="css/style.css" />
+  <script src="js/app.js" defer></script>
+</head>
+
+<body>
+
+  <a class="skip-link" href="#konten">
+    Lewati ke konten utama
+  </a>
+
+  <!-- HEADER -->
   <header class="site-header">
     <nav class="nav" aria-label="Navigasi utama">
+
       <a class="brand" href="index.html">Kopi Nusa</a>
-      <ul>
+
+      <input
+        type="checkbox"
+        id="nav-toggle"
+        class="nav-toggle-input"
+        aria-controls="menu-utama"
+      />
+
+      <label for="nav-toggle" class="nav-toggle-label">
+        <span class="nav-toggle-icon" aria-hidden="true"></span>
+        <span>Menu</span>
+      </label>
+
+      <ul id="menu-utama" class="nav-links">
         <li><a href="index.html">Beranda</a></li>
         <li><a href="tentang.html">Tentang Kami</a></li>
         <li><a href="produk.html">Produk</a></li>
-        <li><a href="galeri.html" aria-current="page">Galeri</a></li>
+        <li>
+          <a href="galeri.html" aria-current="page" class="active">
+            Galeri
+          </a>
+        </li>
         <li><a href="kontak.html">Kontak</a></li>
+        <li><a href="index.html#kontak">Kontak Singkat</a></li>
       </ul>
+
     </nav>
   </header>
 
+  <!-- KONTEN UTAMA -->
   <main id="konten" class="page">
-    <section aria-labelledby="galeri-title">
-      <p class="eyebrow">Cerita Usaha</p>
-      <h1 id="galeri-title">Galeri Kopi Nusa</h1>
-      <p>
-        Jelajahi produk kopi lokal dan proses penyeduhan
-        yang menjadi bagian dari cerita Kopi Kita.
-      </p>
 
-      <h2>Media Usaha</h2>
-      
-      <div class="gallery-list">
-       <figure class="media-card">
-       <img
-           src="gallery/kopi.webp"
-      alt="Etalase Kopi Kita berisi kemasan kopi lokal"
-      loading="lazy"
-    >
-    <figcaption>
-      Etalase produk membantu pelanggan mengenali
-      pilihan kopi.
-    </figcaption>
-  </figure>
+    <h1>Galeri Kopi Nusa</h1>
 
-  <figure class="media-card">
-    <img
-      src="gallery/img_FuVZ92o.jpg"
-      alt="Galeri produk kopi lokal"
-      loading="lazy"
-    >
-    <figcaption>
-      Produk kopi lokal menjadi bagian dari
-      cerita Kopi Kita.
-    </figcaption>
-  </figure>
-</div>
+    <!-- GALERI FOTO -->
+    <section aria-labelledby="media-title">
 
+      <h2 id="media-title">Media Usaha</h2>
 
-      <h2>Nada Penanda Kedai</h2>
-      <p id="audio-note">
-        Dengarkan nada penanda kedai Kopi Kita.
-      </p>
-      <audio controls aria-describedby="audio-note"
-        src="gallery/ssstik.io_1792070258257.mp3">
-        Browser Anda tidak mendukung pemutar audio.
-      </audio>
+      <div class="gallery-grid">
+
+        <figure class="media-card">
+
+          <img
+            src="gallery/kopi.webp"
+            width="1024"
+            height="683"
+            loading="lazy"
+            alt="Etalase Kopi Nusa berisi kemasan kopi lokal"
+          />
+
+          <figcaption>
+            Etalase produk membantu pelanggan mengenali pilihan kopi.
+          </figcaption>
+
+        </figure>
+
+        <figure class="media-card">
+
+          <img
+            src="gallery/img_FuVZ92o.jpg"
+            width="2576"
+            height="1719"
+            loading="lazy"
+            alt="Barista sedang menyiapkan alat seduh manual V60"
+          />
+
+          <figcaption>
+            Kami meracik setiap cangkir dengan presisi
+            untuk mendapatkan cita rasa maksimal.
+          </figcaption>
+
+        </figure>
+
+      </div>
+
     </section>
+
+    <!-- AUDIO -->
+    <section aria-labelledby="audio-title">
+
+      <h2 id="audio-title">Nada Penanda Kedai</h2>
+
+      <p id="audio-note">
+        Suasana pagi yang tenang di Kopi Nusa
+        dengan iringan gitar akustik.
+      </p>
+
+      <div class="audio-player">
+
+        <audio
+          controls
+          preload="metadata"
+          aria-describedby="audio-note"
+        >
+          <source
+            src="gallery/ssstik.io_1792070258257.mp3"
+            type="audio/mpeg"
+          />
+
+          Browser Anda tidak mendukung pemutar audio.
+        </audio>
+
+      </div>
+
+    </section>
+
   </main>
 
-  <footer class="footer">
-    <p>&copy; 2026 Kopi Kita. Data pada halaman ini bersifat dummy.</p>
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <p>
+      &copy; 2026 Kopi Nusa Pekalongan.
+      Hak Cipta Dilindungi.
+    </p>
   </footer>
+
 </body>
 </html>

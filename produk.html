@@ -3,91 +3,147 @@
 <html lang="id">
   <head>
     <meta charset="utf-8" />
-    <!-- Pengaturan tampilan responsif -->
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    
+
     <title>Produk Kopi Nusa - Website UMKM</title>
+
     <link rel="stylesheet" href="css/style.css" />
+    <script src="js/app.js" defer></script>
   </head>
 
   <body>
-    <a class="skip-link" href="#konten">
-      Lewati ke konten utama
-    </a>
+    <a class="skip-link" href="#konten">Lewati ke konten utama</a>
 
+    <!-- HEADER -->
     <header class="site-header">
       <nav class="nav" aria-label="Navigasi utama">
         <a class="brand" href="index.html">Kopi Nusa</a>
-        <ul>
+
+        <input
+          type="checkbox"
+          id="nav-toggle"
+          class="nav-toggle-input"
+          aria-controls="menu-utama"
+        />
+
+        <label for="nav-toggle" class="nav-toggle-label">
+          <span class="nav-toggle-icon" aria-hidden="true"></span>
+          <span>Menu</span>
+        </label>
+
+        <ul id="menu-utama" class="nav-links">
           <li><a href="index.html">Beranda</a></li>
           <li><a href="tentang.html">Tentang Kami</a></li>
           <li>
-            <a aria-current="page" href="produk.html">Produk</a>
+            <a href="produk.html" aria-current="page" class="active">
+              Produk
+            </a>
           </li>
           <li><a href="galeri.html">Galeri</a></li>
           <li><a href="kontak.html">Kontak</a></li>
+          <li><a href="index.html#kontak">Kontak Singkat</a></li>
         </ul>
       </nav>
     </header>
 
+    <!-- KONTEN UTAMA -->
     <main id="konten" class="page">
-      <section aria-labelledby="produk-title">
-        <p class="eyebrow">Pilihan Kopi Lokal</p>
-        <h1 id="produk-title">Produk Kopi Nusa</h1>
-        <p>
-          Pilihan kopi untuk dinikmati di rumah, di kantor,
-          atau sebagai teman beraktivitas.
-        </p>
 
-        <!-- Grid kartu produk -->
+      <h1>Produk Kopi Nusa</h1>
+
+      <p>
+        Pilih produk sesuai kebutuhan seduh harian,
+        kantor, atau hadiah.
+      </p>
+
+      <!-- GAMBAR PRODUK -->
+      <figure class="media-card">
+        <img
+          src="gallery/kopi.webp"
+          width="2576"
+          height="1438"
+          alt="Kemasan pouch kopi putih minimalis di samping tumpukan biji kopi sangrai"
+        />
+
+        <figcaption>
+          
+        </figcaption>
+      </figure>
+
+      <!-- KATEGORI PRODUK -->
+      <section aria-labelledby="kategori-title">
+        <h2 id="kategori-title">Kategori Produk</h2>
+
+        <ul>
+          <li>Paket seduh rumahan</li>
+          <li>Paket kantor mingguan</li>
+          <li>Paket tester untuk pelanggan baru</li>
+        </ul>
+      </section>
+
+      <!-- PRODUK PILIHAN -->
+      <section aria-labelledby="produk-pilihan-title">
+        <h2 id="produk-pilihan-title">Produk Pilihan</h2>
+
         <div class="product-grid">
-          <article class="product-card product-item">
-            <span class="product-badge">Favorit</span>
-            <h2>Kopi Tubruk Signature</h2>
-            <p>Rasa cokelat, jeruk, dan gula aren.</p>
 
-            <div class="product-card-footer">
-              <strong class="price">Rp45.000</strong>
-              <a class="button button-detail" href="kontak.html">
-                Detail
-              </a>
+          <article class="product-card">
+            <span class="product-badge">Terlaris</span>
+            <h3>Kopi Tubruk Signature</h3>
+            <p>Karakter cokelat dan kacang dengan body yang kuat.</p>
+            <p class="price">Rp45.000</p>
+
+            <div class="card-actions">
+              <a class="button" href="kontak.html">Tanya produk</a>
+              <a href="#harga-title">Lihat tabel harga</a>
             </div>
           </article>
 
-          <article class="product-card product-item">
-             <span class="product-badge">Hemat</span>
-            <h2>Caramel Latte</h2>
-            <p>Body tebal dengan aroma rempah.</p>
+          <article class="product-card">
+            <span class="product-badge">Segar</span>
+            <h3>Cold Brew Aren</h3>
+            <p>Kopi dingin dengan rasa ringan dan manis aren seimbang.</p>
+            <p class="price">Rp22.000</p>
 
-            <div class="product-card-footer">
-              <strong class="price">Rp22.000</strong>
-              <a class="button button-detail" href="kontak.html">
-                Detail
-              </a>
+            <div class="card-actions">
+              <a class="button" href="kontak.html">Tanya produk</a>
+              <a href="#harga-title">Lihat tabel harga</a>
             </div>
           </article>
 
-          <article class="product-card product-item">
-            <span class="product-badge">creamy</span>
-            <h2>Milk Iced Latte</h2>
-            <p>
-              Perpaduan espresso dengan susu yang creamy,
-              lembut, dan menyegarkan, dengan sentuhan rasa
-              manis alami yang pas untuk menemani harimu.
-            </p>
+          <article class="product-card">
+            <span class="product-badge">Hemat</span>
+            <h3>Paket Seduh Rumahan</h3>
+            <p>Kopi 250 gram, filter, dan panduan seduh untuk pemula.</p>
+            <p class="price">Rp75.000</p>
 
-            <div class="product-card-footer">
-              <strong class="price">Rp35.000</strong>
-              <a class="button button-detail" href="kontak.html">
-                Detail
-              </a>
+            <div class="card-actions">
+              <a class="button" href="kontak.html">Tanya produk</a>
+              <a href="#harga-title">Lihat tabel harga</a>
             </div>
           </article>
+
         </div>
       </section>
 
-      <!-- Tabel harga responsif -->
+      <!-- PRODUK DINAMIS -->
+      <section class="section" aria-labelledby="produk-dinamis-title">
+
+        <div class="section-header">
+          <p class="eyebrow">Data JavaScript</p>
+          <h2 id="produk-dinamis-title">Produk dari Data Lokal</h2>
+          <p id="produk-ringkasan">
+            Data produk akan dimuat melalui JavaScript.
+          </p>
+        </div>
+
+        <div id="produk-dinamis" class="js-product-grid"></div>
+
+      </section>
+
+      <!-- DAFTAR HARGA -->
       <section aria-labelledby="harga-title">
+
         <h2 id="harga-title">Daftar Harga</h2>
 
         <div
@@ -96,6 +152,7 @@
           aria-labelledby="daftar-harga-caption"
           tabindex="0"
         >
+
           <table>
             <caption id="daftar-harga-caption">
               Daftar harga produk Kopi Nusa
@@ -113,28 +170,35 @@
               <tr>
                 <th scope="row">Kopi Tubruk Signature</th>
                 <td>250 gram</td>
-                <td class="price">Rp45.000</td>
+                <td>Rp45.000</td>
               </tr>
+
               <tr>
-                <th scope="row">Caramel Latte</th>
+                <th scope="row">Cold Brew Aren</th>
                 <td>Botol 250 ml</td>
-                <td class="price">Rp22.000</td>
+                <td>Rp22.000</td>
               </tr>
+
               <tr>
-                <th scope="row">Oat Milk Iced Latte</th>
-                <td>Botol 250 ml</td>
-                <td class="price">Rp35.000</td>
+                <th scope="row">Paket Seduh Rumahan</th>
+                <td>250 gram + filter</td>
+                <td>Rp75.000</td>
               </tr>
             </tbody>
           </table>
+
         </div>
       </section>
+
     </main>
 
+    <!-- FOOTER -->
     <footer class="site-footer">
       <p>
-        &copy; 2026 Kopi Nusa. Data produk ini bersifat dummy.
+        &copy; 2026 Kopi Nusa Pekalongan.
+        Hak Cipta Dilindungi.
       </p>
     </footer>
+
   </body>
 </html>
