@@ -49,49 +49,6 @@ function statusStok(stok) {
   return { label: "Tersedia", className: "" };
 }
 
-<<<<<<< HEAD
-function buatKartuProduk(produk) {
-  const status = statusStok(produk.stok);
-  const badgeUnggulan = produk.unggulan
-    ? '<span class="product-badge">Unggulan</span>'
-    : "";
-
-  return `
-    <article class="js-product-card">
-      ${badgeUnggulan}
-      <h3>${produk.nama}</h3>
-      <p class="category-note">${produk.kategori}</p>
-      <p class="price">${formatRupiah(produk.harga)}</p>
-      <span class="stock-badge ${status.className}">${status.label}</span>
-    </article>
-  `;
-}
-
-function renderProduk() {
-  const grid = document.querySelector("#produk-dinamis");
-  const ringkasan = document.querySelector("#produk-ringkasan");
-
-  if (!grid || !ringkasan) {
-    return;
-  }
-
-  const produkTersedia = produkUmkm.filter((produk) => produk.stok > 0);
-  const produkUnggulan = produkUmkm.find((produk) => produk.unggulan === true);
-
-  produkUmkm.forEach((produk) => {
-    console.log("Debug item:", produk.nama, "| Stok:", produk.stok);
-  });
-
-  const markup = produkTersedia.map(buatKartuProduk).join("");
-
-  grid.innerHTML = markup;
-  ringkasan.textContent = `${produkTersedia.length} dari ${produkUmkm.length} produk sedang tersedia.`;
-
-  console.table(produkUmkm);
-}
-
-document.addEventListener("DOMContentLoaded", renderProduk);
-=======
 function buatElemenProduk(produk) {
   const card = document.createElement("article");
   card.classList.add("js-product-card");
@@ -192,4 +149,3 @@ tombolFilter.forEach((tombol) => {
 document.addEventListener("DOMContentLoaded", () => {
   renderProduk();
 });
->>>>>>> f2a7996 (feat: add DOM product filter rendering and event handling)
