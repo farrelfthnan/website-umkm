@@ -755,3 +755,46 @@ fieldset label {
     height: 210px;
   }
 }
+<<<<<<< HEAD
+=======
+
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-block: 1rem 1.5rem;
+}
+
+.filter-button {
+  border: 1px solid var(--color-border, #cbd5e1);
+  border-radius: 999px;
+  background: #ffffff;
+  color: var(--color-text, #1f2937);
+  padding: 0.65rem 1rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.filter-button:hover,
+.filter-button:focus-visible {
+  border-color: var(--color-primary, #6f3b1f);
+  outline: 3px solid rgb(111 59 31 / 20%);
+  outline-offset: 2px;
+}
+
+.filter-button.is-active {
+  background: var(--color-primary, #6f3b1f);
+  border-color: var(--color-primary, #6f3b1f);
+  color: #ffffff;
+}
+
+.empty-state {
+  grid-column: 1 / -1;
+  border: 1px dashed #94a3b8;
+  border-radius: 1rem;
+  padding: 1rem;
+  background: #ffffff;
+  color: #64748b;
+  font-weight: 700;
+}
+>>>>>>> f2a7996 (feat: add DOM product filter rendering and event handling)
